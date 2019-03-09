@@ -19,7 +19,7 @@ class Question extends PureComponent {
 
 const mapStateToProps = state => {
     return {
-        imageUrl: state.imageUrl,
+        imageUrl: state.question.imageUrl,
     }
 }
 
