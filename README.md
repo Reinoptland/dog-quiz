@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8a91c235-7004-403c-9efb-2a3bc9065c70/deploy-status)](https://app.netlify.com/sites/dog-quiz/deploys)
+
 # What this project is about
 
 This is my own attempt at the week 4 group project the students do during the Academy. 
