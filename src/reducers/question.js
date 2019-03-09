@@ -1,6 +1,10 @@
 import { SET_QUESTION_IMG_URL } from "../actions/api";
 
-export default (state = {}, action) => {
+const initialState = {
+    imageUrl: null
+}
+
+export default (state = initialState, action = {}) => {
     switch (action.type) {
         case SET_QUESTION_IMG_URL: 
             return { ...state, imageUrl: action.payload}

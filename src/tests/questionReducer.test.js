@@ -13,3 +13,8 @@ it('Sets a new image url in resonse to SET_QUESTION_IMG_URL', () => {
     expect(newState.imageUrl).toStrictEqual(url)
 });
   
+it('should initialize with an empty schema', () => {
+    
+    const initialState = questionReducer()
+    expect(initialState.imageUrl).toEqual(null)
+})
