@@ -1,14 +1,13 @@
 import React, { PureComponent } from 'react'
+import '../css/Question.css';
 import { connect } from 'react-redux'
 import { fetchRandomImageFromBreed } from '../actions/api'
 import { shuffle, sampleSize } from 'lodash/collection'
-
 
 class Question extends PureComponent {
     componentDidMount(){
         this.props.fetchRandomImageFromBreed(this.props.correctAnswer)
     }
-
 
     render(){
         const { imageUrl } = this.props
@@ -17,11 +16,13 @@ class Question extends PureComponent {
         if(imageUrl === null) return <h1>Loading</h1>
 
         return <>
-            <img src={imageUrl} alt='lovely dog'/>
+            <img className="Question-img" src={imageUrl} alt='lovely dog'/>
             <br/>
-            <h1>What breed is this</h1>
+            <h1>What breed is this?</h1>
             <br/>
-            { options.map(option => <button>{option}</button>)}
+            { options.map(option => 
+                <button className="Question-button" >{option}</button>)
+            }
         </>
     }
 }
