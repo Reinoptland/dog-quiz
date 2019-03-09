@@ -28,7 +28,17 @@ export const setBreedList = (breedList) => ({
 
 export const fetchRandomImageFromBreed = (breed) => {
     return async (dispatch) => {
-        const response = await request(`https://dog.ceo/api/breed/${breed}/images/random`)
+        let response 
+
+        // We check to see if the breed is a subbreed
+        if(breed.includes('-')){
+            // if it is a sub breed the api endpoint is different
+            const [subBreed, superBreed] = breed.split('-')
+            response = await request(`https://dog.ceo/api/breed/${superBreed}/${subBreed}/images/random`)
+        } else {
+            response = await request(`https://dog.ceo/api/breed/${breed}/images/random`)
+        }
+        
         const url = response.body.message
         dispatch(setQuestionImageUrl(url))
     }
