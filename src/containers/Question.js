@@ -2,16 +2,14 @@ import React, { PureComponent } from 'react'
 import '../css/Question.css';
 import { connect } from 'react-redux'
 import { fetchRandomImageFromBreed } from '../actions/api'
-import { shuffle, sampleSize } from 'lodash/collection'
 
 class Question extends PureComponent {
     componentDidMount(){
-        this.props.fetchRandomImageFromBreed(this.props.correctAnswer)
+        this.props.fetchRandomImageFromBreed(this.props.breed)
     }
 
     render(){
         const { imageUrl } = this.props
-        const options = shuffle([...this.props.options, this.props.correctAnswer])
         
         if(imageUrl === null) return <h1>Loading</h1>
 
@@ -20,9 +18,7 @@ class Question extends PureComponent {
             <br/>
             <h1>What breed is this?</h1>
             <br/>
-            { options.map(option => 
-                <button className="Question-button" >{option}</button>)
-            }
+
         </>
     }
 }
@@ -30,7 +26,6 @@ class Question extends PureComponent {
 const mapStateToProps = state => {
     return {
         imageUrl: state.question.imageUrl,
-        options: sampleSize(state.breeds, 2)
     }
 }
 
