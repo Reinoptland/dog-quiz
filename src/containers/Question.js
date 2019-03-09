@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { fetchRandomImageFromBreed } from '../actions/api'
+import { shuffle, sampleSize } from 'lodash/collection'
+
 
 class Question extends PureComponent {
     componentDidMount(){
@@ -10,16 +12,24 @@ class Question extends PureComponent {
 
     render(){
         const { imageUrl } = this.props
+        const options = shuffle([...this.props.options, this.props.correctAnswer])
         
         if(imageUrl === null) return <h1>Loading</h1>
 
-        return <img src={imageUrl}/>
+        return <>
+            <img src={imageUrl} alt='lovely dog'/>
+            <br/>
+            <h1>What breed is this</h1>
+            <br/>
+            { options.map(option => <button>{option}</button>)}
+        </>
     }
 }
 
 const mapStateToProps = state => {
     return {
         imageUrl: state.question.imageUrl,
+        options: sampleSize(state.breeds, 2)
     }
 }
 
