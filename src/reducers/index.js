@@ -1,4 +1,4 @@
-import { combineReducers } from redux
+import { combineReducers } from 'redux'
 import question from './question'
 
 export default combineReducers({
