@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 import store from './store'
-import Game from './containers/game'
+import Game from './containers/Game'
 
 class App extends Component {
   render() {
