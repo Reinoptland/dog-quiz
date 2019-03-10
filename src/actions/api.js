@@ -42,14 +42,15 @@ export const nextQuestionCreated = (question) => ({
     type: NEXT_QUESTION, payload: question
 })
 
-export const nextQuestion = () => {
+export const nextQuestion = (delay) => {
     return async (dispatch, getState) => {
         const { currentBreeds, correctAnswer } = createNextQuestion(getState().question.currentBreeds)
         const imageUrl = await fetchRandomImageFromBreed(correctAnswer)
-        
-        // Waiting a second so the user can see the feedback
-        await sleep(1000)
 
+        if(delay){
+            await sleep(delay)
+        }
+        
         dispatch(nextQuestionCreated({ currentBreeds, correctAnswer, imageUrl }))
     }
 } 
