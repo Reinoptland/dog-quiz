@@ -8,6 +8,7 @@
     margin: 2vh 2vw;
     padding: 10px;
     transition: 0.3s;
+    box-shadow: 10px 11px 36px -6px rgba(0,0,0,0.75);
 }
 
 .button:hover {
