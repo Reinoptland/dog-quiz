@@ -1,20 +1,26 @@
 import questionReducer from '../reducers/question'
-import { SET_QUESTION_IMG_URL } from '../actions/api';
+import { NEXT_QUESTION } from '../actions/api';
 
-it('Sets a new image url in resonse to SET_QUESTION_IMG_URL', () => {
-    const url = "https://images.dog.ceo/breeds/kelpie/n02105412_7514.jpg"
+it('Sets a Question in response to NEXT_QUESTION', () => {
+    const payload = {
+        imageUrl: "https://images.dog.ceo/breeds/kelpie/n02105412_7514.jpg",
+        currentBreeds: ['shiba', 'akita', 'kelpie'],
+        correctAnswer: 'kelpie'
+    }
     const action = {
-        type: SET_QUESTION_IMG_URL,
-        payload: url
+        type: NEXT_QUESTION,
+        payload
     }
 
-    const newState = questionReducer({}, action)
+    const newState = questionReducer(undefined, action)
 
-    expect(newState.imageUrl).toStrictEqual(url)
+    expect(newState).toStrictEqual(payload)
 });
   
 it('should initialize with an empty schema', () => {
     
     const initialState = questionReducer()
     expect(initialState.imageUrl).toEqual(null)
+    expect(initialState.currentBreeds).toEqual(null)
+    expect(initialState.correctAnswer).toEqual(null)
 })

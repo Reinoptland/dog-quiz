@@ -11,9 +11,6 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case SET_QUESTION_IMG_URL: {
-            return { ...state, imageUrl: action.payload}
-        }
         case GAME_STARTED: {
             const { currentBreeds } = createSelection(action.payload, BREEDCOUNT)
             return { ...state, currentBreeds }
