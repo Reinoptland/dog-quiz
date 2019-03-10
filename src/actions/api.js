@@ -1,5 +1,6 @@
 import request from 'superagent'
 import { createBreedAndSubBreedList, createNextQuestion, sleep } from '../lib/utils'
+import { activateButtons, disableButtons } from './buttons'
 
 export const SET_BREEDLIST = 'SET_BREEDLIST'
 export const GAME_STARTED = 'GAME_STARTED'
@@ -44,7 +45,13 @@ export const nextQuestionCreated = (question) => ({
 
 export const nextQuestion = (delay) => {
     return async (dispatch, getState) => {
-        const { currentBreeds, correctAnswer } = createNextQuestion(getState().question.currentBreeds)
+        const state = getState()
+
+        if(state.buttons.active){
+            dispatch(disableButtons())
+        }
+
+        const { currentBreeds, correctAnswer } = createNextQuestion(state.question.currentBreeds)
         const imageUrl = await fetchRandomImageFromBreed(correctAnswer)
 
         if(delay){
@@ -52,5 +59,6 @@ export const nextQuestion = (delay) => {
         }
         
         dispatch(nextQuestionCreated({ currentBreeds, correctAnswer, imageUrl }))
+        dispatch(activateButtons())
     }
 } 

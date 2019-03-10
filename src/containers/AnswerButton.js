@@ -25,9 +25,10 @@ class AnswerButton extends React.Component {
     }
 
     render() {
-        const { option } = this.props
+        const { option, buttonsActive } = this.props
         return (
             <button 
+                disabled={!buttonsActive}
                 key={option}
                 onClick={this.checkAnswer} 
                 className="button" 
@@ -40,6 +41,7 @@ class AnswerButton extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+    buttonsActive: state.buttons.active,
     displayFeedback: state.feedback.displayFeedback
 })
 
