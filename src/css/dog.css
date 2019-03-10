@@ -3,4 +3,5 @@
     box-sizing: border-box;
     border-radius: 5px;
     transform: rotate(-10deg);
+    box-shadow: 10px 11px 36px -6px rgba(0,0,0,0.75);
 }
