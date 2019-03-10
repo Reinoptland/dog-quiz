@@ -1,0 +1,6 @@
+.dog__image {
+    border: 5px solid #DD32E0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transform: rotate(-10deg);
+}
