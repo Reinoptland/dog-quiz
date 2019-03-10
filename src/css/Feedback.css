@@ -1,11 +1,21 @@
 .Feedback {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 20vh;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid #000000;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-areas: 
     "Feedback__text Feedback__image"
     "Feedback__text Feedback__image"
     ". Feedback__nextQuestionButton";
-    width: 40vw;
+    width: 50vw;
+    padding: 5vw;
 }
 
 .Feedback__image {
@@ -20,10 +30,31 @@
 .Feedback__text {
     grid-area: Feedback__text;
     align-self: center;
+    margin: 5px;
 }
 
 .Feedback__nextQuestionButton {
     grid-area: Feedback__nextQuestionButton;
     justify-self: center;
     width: 50%;
+}
+
+@media (max-width: 700px) {
+    .Feedback {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "Feedback__text"
+        "Feedback__image"
+        "Feedback__nextQuestionButton";
+        width: 80vw;
+    }
+
+    .Feedback__image {
+        grid-area: Feedback__image;
+        max-height: 40vh;
+        max-width: 60vw;
+        margin: 5vh 0;
+        align-self: center;
+        justify-self: center;
+    }
 }
