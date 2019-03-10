@@ -1,10 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { nextQuestion } from '../actions/api'
+import { showFeedbackThenNextQuestion } from '../actions/feedback'
+import '../css/button.css'
 
 const GREEN = '#90F636'
 const RED = '#F53673'
 const BLACK = 'black'
+const ONE_SECOND_DELAY = 1000
 
 class AnswerButton extends React.Component {
     state = {
@@ -14,9 +17,10 @@ class AnswerButton extends React.Component {
     checkAnswer = (event) => {
         if(event.target.innerText === this.props.correctAnswer){
             this.setState({ textColor: GREEN })
-            this.props.nextQuestion()
+            this.props.nextQuestion(ONE_SECOND_DELAY)
         } else {
             this.setState({ textColor: RED })
+            this.props.showFeedbackThenNextQuestion()
         }
     }
 
@@ -26,7 +30,7 @@ class AnswerButton extends React.Component {
             <button 
                 key={option}
                 onClick={this.checkAnswer} 
-                className="Question-button" 
+                className="button" 
                 style={{ color: this.state.textColor }}
             >
                 {option}
@@ -35,5 +39,9 @@ class AnswerButton extends React.Component {
         }
 }
 
-export default connect(null, { nextQuestion })(AnswerButton)
+const mapStateToProps = (state) => ({
+    displayFeedback: state.feedback.displayFeedback
+})
+
+export default connect(mapStateToProps, { nextQuestion, showFeedbackThenNextQuestion })(AnswerButton)
 

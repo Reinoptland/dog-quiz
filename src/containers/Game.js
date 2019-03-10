@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { startGame } from '../actions/api'
 import Question from './Question'
 import AnswerButton from './AnswerButton';
+import Feedback from '../components/Feedback'
 
 class Game extends PureComponent {
     componentDidMount(){
@@ -22,6 +23,7 @@ class Game extends PureComponent {
                     correctAnswer={correctAnswer}
                 />
             )}
+            <Feedback />
         </>
     }
 }
