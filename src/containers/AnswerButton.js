@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { nextQuestion } from '../actions/api'
+import '../css/button.css'
 
 const GREEN = '#90F636'
 const RED = '#F53673'
@@ -26,7 +27,7 @@ class AnswerButton extends React.Component {
             <button 
                 key={option}
                 onClick={this.checkAnswer} 
-                className="Question-button" 
+                className="button" 
                 style={{ color: this.state.textColor }}
             >
                 {option}

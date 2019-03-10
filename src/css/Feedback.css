@@ -1,0 +1,29 @@
+.Feedback {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+    "Feedback__text Feedback__image"
+    "Feedback__text Feedback__image"
+    ". Feedback__nextQuestionButton";
+    width: 40vw;
+}
+
+.Feedback__image {
+    grid-area: Feedback__image;
+    max-height: 20vh;
+    max-width: 20vw;
+    margin: 5vh 0;
+    align-self: center;
+    justify-self: center;
+}
+
+.Feedback__text {
+    grid-area: Feedback__text;
+    align-self: center;
+}
+
+.Feedback__nextQuestionButton {
+    grid-area: Feedback__nextQuestionButton;
+    justify-self: center;
+    width: 50%;
+}
