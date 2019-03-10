@@ -5,7 +5,7 @@ import { fetchRandomImageFromBreed } from '../actions/api'
 
 class Question extends PureComponent {
     componentDidMount(){
-        this.props.fetchRandomImageFromBreed(this.props.breed)
+        this.props.fetchRandomImageFromBreed(this.props.correctAnswer)
     }
 
     render(){
@@ -26,6 +26,7 @@ class Question extends PureComponent {
 const mapStateToProps = state => {
     return {
         imageUrl: state.question.imageUrl,
+        correctAnswer: state.question.correctAnswer
     }
 }
 

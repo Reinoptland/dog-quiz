@@ -1,21 +1,20 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { shuffle, sampleSize, sample } from 'lodash/collection'
-import { fetchBreedList } from '../actions/api'
+import { startGame } from '../actions/api'
 import Question from './Question'
 import AnswerButton from './AnswerButton';
 
 class Game extends PureComponent {
     componentDidMount(){
-        this.props.fetchBreedList()
+        this.props.startGame()
     }
 
     render(){
         const { breeds, correctAnswer, options } = this.props
-        if(breeds.length === 0) return <h1>Loading</h1>
+        if(breeds.length === 0 || options === null ) return <h1>Loading</h1>
 
         return <>
-            <Question breed={correctAnswer} />
+            <Question />
             { options.map(option => 
                 <AnswerButton 
                     key={`${option}-${Math.random()}`}
@@ -28,13 +27,11 @@ class Game extends PureComponent {
 }
 
 const mapStateToProps = state => {
-    const options = shuffle(sampleSize(state.breeds, 3))
-    const correctAnswer = sample(options)
     return {
         breeds: state.breeds,
-        options,
-        correctAnswer
+        options: state.question.currentBreeds,
+        correctAnswer: state.question.correctAnswer
     }
 }
 
-export default connect(mapStateToProps, { fetchBreedList })(Game)
+export default connect(mapStateToProps, { startGame })(Game)

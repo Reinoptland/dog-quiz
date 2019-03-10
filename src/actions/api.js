@@ -1,24 +1,17 @@
 import request from 'superagent'
+import { createBreedAndSubBreedList } from '../lib/utils'
 
 export const SET_BREEDLIST = 'SET_BREEDLIST'
 export const SET_QUESTION_IMG_URL = 'SET_QUESTION_IMG_URL'
+export const GAME_STARTED = 'GAME_STARTED'
 
-export const fetchBreedList = () => {
+export const startGame = () => {
     return async (dispatch) => {
         const response = await request('https://dog.ceo/api/breeds/list/all')
-        const allBreeds = response.body.message
-        const breeds = Object.keys(allBreeds)
-        const breedList = breeds.reduce((breedList, breed, _, breeds) => {
-            if(allBreeds[breed].length === 0){
-                return [...breedList, breed]
-            }
-
-            const subBreeds = allBreeds[breed].map(subBreed => `${subBreed}-${breed}`)
-
-            return [...breedList, ...subBreeds]
-        }, [])
+        const breedList = createBreedAndSubBreedList(response.body.message)
 
         dispatch(setBreedList(breedList))
+        dispatch(gameStarted(breedList))
     }
 }
 
@@ -46,4 +39,8 @@ export const fetchRandomImageFromBreed = (breed) => {
 
 export const setQuestionImageUrl = (url) => ({
     type: SET_QUESTION_IMG_URL, payload: url
+})
+
+export const gameStarted = (breedList) => ({
+    type: GAME_STARTED, payload: breedList
 })
