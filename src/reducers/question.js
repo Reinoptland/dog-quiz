@@ -1,5 +1,7 @@
-import { SET_QUESTION_IMG_URL, GAME_STARTED } from "../actions/api";
-import { shuffle, sample, sampleSize } from 'lodash/collection'
+import { SET_QUESTION_IMG_URL, GAME_STARTED, NEXT_QUESTION } from "../actions/api";
+import { createSelection } from '../lib/utils'
+
+const BREEDCOUNT = 3
 
 const initialState = {
     imageUrl: null,
@@ -9,13 +11,20 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case SET_QUESTION_IMG_URL: 
+        case SET_QUESTION_IMG_URL: {
             return { ...state, imageUrl: action.payload}
-        case GAME_STARTED: 
-            const currentBreeds = shuffle(sampleSize(action.payload, 3))
-            const correctAnswer = sample(currentBreeds)
-            return { ...state, currentBreeds, correctAnswer }
-        default:
+        }
+        case GAME_STARTED: {
+            const { currentBreeds } = createSelection(action.payload, BREEDCOUNT)
+            return { ...state, currentBreeds }
+        }
+        case NEXT_QUESTION: {
+            const { currentBreeds, correctAnswer, imageUrl } = action.payload
+            return { ...state, currentBreeds, correctAnswer, imageUrl }
+        }
+
+        default: {
             return state
+        }
     }
 }

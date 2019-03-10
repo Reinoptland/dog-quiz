@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
 import '../css/Question.css';
 import { connect } from 'react-redux'
-import { fetchRandomImageFromBreed } from '../actions/api'
+import { nextQuestion } from '../actions/api'
 
 class Question extends PureComponent {
     componentDidMount(){
-        this.props.fetchRandomImageFromBreed(this.props.correctAnswer)
+        this.props.nextQuestion()
     }
 
     render(){
@@ -30,4 +30,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchRandomImageFromBreed })(Question)
+export default connect(mapStateToProps, { nextQuestion })(Question)
