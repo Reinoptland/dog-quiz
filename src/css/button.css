@@ -8,13 +8,20 @@
     margin: 2vh 2vw;
     padding: 10px;
     transition: 0.3s;
+    box-shadow: 10px 11px 36px -6px rgba(0,0,0,0.75);
 }
 
 .button:hover {
-    transform: translateY(-5px)
+    transform: translateY(-5px);
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.635417) 52.6%, rgba(255, 255, 255, 0) 100%), #F74CFA;
 }
 
 .button:active {
     box-shadow: none;
     transform: rotate(10deg)
+}
+
+.button:disabled {
+    transform: translateY(0px);
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.635417) 52.6%, rgba(255, 255, 255, 0) 100%), #C419C7;
 }
