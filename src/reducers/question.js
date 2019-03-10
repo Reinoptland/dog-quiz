@@ -1,18 +1,17 @@
-import { SET_QUESTION_IMG_URL, GAME_STARTED, NEXT_QUESTION } from "../actions/api";
+import { GAME_STARTED, NEXT_QUESTION } from "../actions/api";
 import { createSelection } from '../lib/utils'
-
-const BREEDCOUNT = 3
 
 const initialState = {
     imageUrl: null,
     currentBreeds: null,
     correctAnswer: null,
+    breedCount: 3
 }
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
         case GAME_STARTED: {
-            const { currentBreeds } = createSelection(action.payload, BREEDCOUNT)
+            const { currentBreeds } = createSelection(action.payload, state.breedCount)
             return { ...state, currentBreeds }
         }
         case NEXT_QUESTION: {

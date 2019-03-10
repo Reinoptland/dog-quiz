@@ -2,7 +2,6 @@ import request from 'superagent'
 import { createBreedAndSubBreedList, createNextQuestion, sleep } from '../lib/utils'
 
 export const SET_BREEDLIST = 'SET_BREEDLIST'
-export const SET_QUESTION_IMG_URL = 'SET_QUESTION_IMG_URL'
 export const GAME_STARTED = 'GAME_STARTED'
 export const NEXT_QUESTION = 'NEXT_QUESTION'
 
@@ -34,10 +33,6 @@ export const fetchRandomImageFromBreed = async (breed) => {
     
     return response.body.message
 }
-
-export const setQuestionImageUrl = (url) => ({
-    type: SET_QUESTION_IMG_URL, payload: url
-})
 
 export const gameStarted = (breedList) => ({
     type: GAME_STARTED, payload: breedList
