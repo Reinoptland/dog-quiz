@@ -1,16 +1,22 @@
 import React from 'react'
-import { black } from 'ansi-colors';
+import { connect } from 'react-redux'
+import { nextQuestion } from '../actions/api'
 
-export default class AnswerButton extends React.Component {
+const GREEN = '#90F636'
+const RED = '#F53673'
+const BLACK = 'black'
+
+class AnswerButton extends React.Component {
     state = {
-        textColor: black
+        textColor: BLACK
     }
 
     checkAnswer = (event) => {
         if(event.target.innerText === this.props.correctAnswer){
-            this.setState({ textColor: '#90F636'})
+            this.setState({ textColor: GREEN })
+            this.props.nextQuestion()
         } else {
-            this.setState({ textColor: '#F53673'})
+            this.setState({ textColor: RED })
         }
     }
 
@@ -28,3 +34,6 @@ export default class AnswerButton extends React.Component {
             )
         }
 }
+
+export default connect(null, { nextQuestion })(AnswerButton)
+
