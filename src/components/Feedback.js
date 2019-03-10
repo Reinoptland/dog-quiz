@@ -5,6 +5,7 @@ import '../css/Feedback.css'
 import '../css/button.css'
 
 const Feedback = (props) => {
+    if(props.displayFeedback === false) return null 
     if(props.correctAnswer === null || props.imageUrl === null) return <h1>Loading</h1>
 
     return (
@@ -21,7 +22,8 @@ const Feedback = (props) => {
 
 const mapStateToProps = (state) => ({
     correctAnswer: state.question.correctAnswer,
-    imageUrl: state.question.imageUrl
+    imageUrl: state.question.imageUrl,
+    displayFeedback: state.feedback.displayFeedback
 })
 
 export default connect(mapStateToProps)(Feedback)
