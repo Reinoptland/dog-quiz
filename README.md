@@ -13,7 +13,7 @@ This is my own attempt at the week 4 React/Redux group project the students do d
 - **[Goals for this project](##goals-for-this-project)**
 - **[Requirements briefing](##requirements)**
 - **[My git workflow](##my-git-workflow)**
-- **[My agile workflow: Trello board](##my-agile-workflow:-trello-board)**
+- **[My agile workflow and trello board](##my-agile-workflow-and-trello-board)**
 - **[create-react-app-docs](##create-react-app)**
 
 ## Technologies used
@@ -43,7 +43,7 @@ In this project I try to use:
 - Well named branches
 - Pull requests with summaries
 
-If you have feedback to improve my git usage: [please drop me a line!](https://www.linkedin.com/in/rein-op-t-land-295759124/) 
+If you have feedback to improve my git usage: **[please drop me a line!](https://www.linkedin.com/in/rein-op-t-land-295759124/)** 
 
 Here is my branching model for this project.
 
@@ -55,7 +55,7 @@ development             \_____________/- pull request
 feature/some-feature      \_commits_/- pull request
 ```
 
-## My agile workflow: Trello board
+## My agile workflow and Trello board
 
 I try to maintain a backlog eventhough I'm working on a project by myself. That way people can quickly jump in and start helping out. It also displays how I split up my tasks and try to build this project in an iterative and incremental way!
 
