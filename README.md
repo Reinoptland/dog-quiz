@@ -9,12 +9,12 @@ This is my own attempt at the week 4 React/Redux group project the students do d
 
 ## Table of contents:
 
-- **[Technologies used](##technologies-used)**
-- **[Goals for this project](##goals-for-this-project)**
-- **[Requirements briefing](##requirements)**
-- **[My git workflow](##my-git-workflow)**
-- **[My agile workflow and trello board](##my-agile-workflow-and-trello-board)**
-- **[create-react-app-docs](##create-react-app)**
+- **[Technologies used](#technologies-used)**
+- **[Goals for this project](#goals-for-this-project)**
+- **[Requirements briefing](#requirements)**
+- **[My git workflow](#my-git-workflow)**
+- **[My agile workflow and trello board](#my-agile-workflow-and-trello-board)**
+- **[create-react-app-docs](#create-react-app)**
 
 ## Technologies used
 
