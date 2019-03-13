@@ -5,13 +5,14 @@
 ## [🐕🐩 Check out the deployed version here! 🐩🐕](https://dog-quiz.netlify.com)
 ## What this project is about
 
-This is my own attempt at the week 4 React/Redux group project the students do during the Academy. For more info why I am doing this checkout: **[Goals for this project](##goals-for-this-project)**
+This is my own attempt at the week 4 React/Redux group project the students do during the Academy. For more info why I am doing this checkout: **[Goals for this project](#goals-for-this-project)**
 
 ## Table of contents:
 
 - **[Technologies used](#technologies-used)**
 - **[Goals for this project](#goals-for-this-project)**
 - **[Requirements briefing](#requirements)**
+- **[Features built so far overview with pull requests](#features-built-so-far-overview-with-pull-requests)**
 - **[My git workflow](#my-git-workflow)**
 - **[My agile workflow and trello board](#my-agile-workflow-and-trello-board)**
 - **[create-react-app-docs](#create-react-app)**
@@ -29,11 +30,20 @@ This is my own attempt at the week 4 React/Redux group project the students do d
 
 - To practice for myself
 - To make an example for the students to see how they could have tackled the project.
-- **[To showcase disciplined git usage](##my-git-workflow)**
+- **[To showcase disciplined git usage](#my-git-workflow)**
 
 ## Requirements
 
 Checkout out: **[requirements.md](./requirements.md)**
+
+## Features built so far overview with pull requests
+
+#### 👀👇 Click links to view the pull requests 👇👀
+
+- **[Feat/display random dog image](https://github.com/Reinoptland/dog-quiz/pull/2)**
+- **[Feat/next question](https://github.com/Reinoptland/dog-quiz/pull/5)**
+- **[Feat/feedback on incorrect](https://github.com/Reinoptland/dog-quiz/pull/7)**
+- **[Bugfix/disable buttons on choice](https://github.com/Reinoptland/dog-quiz/pull/11)**
 
 ## My git workflow
 
